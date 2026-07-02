@@ -28,4 +28,5 @@ urlpatterns = [
     path("api/auth/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
     path("api/auth/logout/", TokenBlacklistView.as_view(), name="token_blacklist"),
     path("api/accounts/", include("accounts.urls")),
+    path("api/projects/", include("projects.urls")),  
 ]
