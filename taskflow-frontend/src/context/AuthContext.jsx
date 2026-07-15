@@ -31,9 +31,7 @@ export function AuthProvider({ children }) {
     // cookie for middleware (15 min, matches access token lifetime)
     document.cookie = `access_token=${data.access}; path=/; max-age=900`;
 
-    const { data: userData } = await api.get("/accounts/me/", {
-      headers: { Authorization: `Bearer ${data.access}` },
-    });
+    const { data: userData } = await api.get("/accounts/me/");
     setUser(userData);
     localStorage.setItem("user", JSON.stringify(userData));
   };
